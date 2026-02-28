@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Modern Portfolio Color Palette */
+    --background: 0 0% 100%; /* Pure White */
+    --foreground: 220 13% 18%; /* Deep Navy - primary text */
+
+    --card: 0 0% 100%; /* White card surfaces */
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --primary: 220 90% 56%; /* Vibrant Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%; /* Light Blue Gray - soft background */
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 14% 96%; /* Light Blue Gray */
+    --muted-foreground: 220 9% 46%; /* Medium Gray */
+
+    --accent: 260 60% 65%; /* Purple Accent */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 90% 56%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(220, 90%, 56%) 0%, hsl(260, 60%, 65%) 100%);
+    --section-bg: hsl(220, 14%, 96%);
+    --card-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Additional design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(220, 90%, 56%), hsl(260, 60%, 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(220, 14%, 96%));
+    --shadow-elegant: 0 10px 30px -10px hsl(220 90% 56% / 0.2);
+    --shadow-glow: 0 0 40px hsl(260 60% 65% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
